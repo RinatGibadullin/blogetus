@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Sign In" do
-  let(:user) { create :user }
+  let(:user) { FactoryBot.create :user }
   let(:unconfirmed_user) { create :user, :not_confirmed }
 
   def sign_in(email, password)
@@ -24,5 +24,16 @@ describe "Sign In" do
 
     expect(page).to have_content("Sign in")
     expect(page).to have_content("Invalid Email or password")
+  end
+
+  it "Unconfirmed user tries to sign in" do
+    visit new_user_session_path
+
+    fill_in :user_email, with: unconfirmed_user.email
+    fill_in :user_password, with: unconfirmed_user.password
+
+    click_button "Sign in"
+
+    expect(page).to have_content("You must confirm your email before sign in!")
   end
 end

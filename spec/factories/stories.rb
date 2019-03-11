@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :story do
     title { FFaker::Lorem.phrase }
 
-    brief { FFaker::Lorem.phrase }
+    # brief { FFaker::Lorem.phrase }
 
     content do
       FFaker::HTMLIpsum.p +
