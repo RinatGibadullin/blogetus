@@ -2,11 +2,11 @@ source "https://rubygems.org"
 
 ruby "2.5.1"
 
-gem "rails", "~> 5.1.6"
+gem "rails", "~> 5.1.6.2"
 
 gem "decent_decoration", "~> 0.1.0"
 gem "decent_exposure", "~> 3.0.0"
-gem "devise"
+gem "devise", "4.6.0"
 gem "draper", "~> 3.0.1"
 gem "foreman"
 gem "pg", ">= 0.18", "< 2.0"
